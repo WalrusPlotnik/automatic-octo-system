@@ -12,4 +12,25 @@ Console.Write("Введите минимальное значение масси
 int min = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите максимальное значение массива: ");
 int max = Convert.ToInt32(Console.ReadLine());
-double[,] array = new double[m,n];
+int[,] array = new int[m,n];
+
+// функция создания массива со случайными значениями элементов
+int[,] MakeMe2dArray(int m, int n, int min, int max){
+    for (int i = 0; i < m; i++)
+        for (int j = 0; j < n; j++)
+            array[i,j] = new Random().Next(min,max+1); 
+    return array;
+}
+
+void ShowMy2dArray(int[,] array){
+    for (int i = 0; i < array.GetLength(0); i++){
+        for (int j = 0; j < array.GetLength(1); j++){
+            Console.Write(array[i,j] +" ");
+        }
+        Console.WriteLine();
+    }
+}
+// вызов функции создания массива
+MakeMe2dArray(m,n,min,max); 
+// вызов функции демонстрации массива
+ShowMy2dArray(array);
