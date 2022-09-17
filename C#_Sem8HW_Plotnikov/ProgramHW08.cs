@@ -55,9 +55,7 @@ int[,] ConjugationArray(int[,] array){
 ShowMy2dArray(array);
 // вызов функции сортировки массива
 ConjugationArray(array);
-//int[,] arrayConjugated = ConjugationArray(array);
 Console.WriteLine(); // это отступ
-// вызов функции демонстрации массива сортированного
-//ShowMy2dArray(arrayConjugated);
+// снова вызов функции демонстрации массива, уже сортированного
 ShowMy2dArray(array);
 
