@@ -21,7 +21,7 @@ int[,] MakeMe2dArray(int m, int n, int min, int max){
             array[i,j] = new Random().Next(min,max+1); 
     return array;
 }
-
+// функция демонстрации массива (подставить сюда массив)
 void ShowMy2dArray(int[,] array){
     for (int i = 0; i < array.GetLength(0); i++){
         for (int j = 0; j < array.GetLength(1); j++){
@@ -30,7 +30,34 @@ void ShowMy2dArray(int[,] array){
         Console.WriteLine();
     }
 }
-// вызов функции создания массива
+// вызов функции создания массива 
 MakeMe2dArray(m,n,min,max); 
-// вызов функции демонстрации массива
+// функция сортировки массива 
+int[,] ConjugationArray(int[,] array){
+    for (int i = 0; i < array.GetLength(0); i++){
+        // переменная для хранения переносимого значения
+        int temp = 0;    
+        for (int j = 0; j < array.GetLength(1); j++){
+            // третий цикл для перестановки значений     
+            for (int h = 0; h < array.GetLength(1)-1; h++){
+                // условие, что значение следующего элемента больше предыдущего
+                if (array[i,h] < array[i,h+1]){
+                    temp = array[i, h];
+                    array[i, h] = array[i, h+1];
+                    array[i, h+1] = temp;
+                }
+            }
+        }
+    }
+    return array;
+}
+// вызов функции демонстрации массива несортированного
 ShowMy2dArray(array);
+// вызов функции сортировки массива
+ConjugationArray(array);
+//int[,] arrayConjugated = ConjugationArray(array);
+Console.WriteLine(); // это отступ
+// вызов функции демонстрации массива сортированного
+//ShowMy2dArray(arrayConjugated);
+ShowMy2dArray(array);
+
