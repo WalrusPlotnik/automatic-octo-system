@@ -2,7 +2,7 @@
 // ***********************************************************************************
 // Задайте двумерный массив.
 // Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
-
+/*
 // получаем от пользователя характеристики массива
 Console.Write("Введите количество строк в массиве (m): ");
 int m = Convert.ToInt32(Console.ReadLine());
@@ -21,6 +21,8 @@ int[,] MakeMe2dArray(int m, int n, int min, int max){
             array[i,j] = new Random().Next(min,max+1); 
     return array;
 }
+*/
+/*
 // функция демонстрации массива (подставить сюда массив)
 void ShowMy2dArray(int[,] array){
     for (int i = 0; i < array.GetLength(0); i++){
@@ -30,9 +32,10 @@ void ShowMy2dArray(int[,] array){
         Console.WriteLine();
     }
 }
+*/
+/*
 // вызов функции создания массива 
 MakeMe2dArray(m,n,min,max); 
-/*
 // функция сортировки массива 
 int[,] ConjugationArray(int[,] array){
     for (int i = 0; i < array.GetLength(0); i++){
@@ -101,3 +104,45 @@ else{
 
 */
 
+// Напишите программу, которая заполнит спирально массив 4 на 4.
+/*
+// тело функции генерации массива 
+int[,] MakeMe2dSpiralRandomArray(){
+// зададим размер массивa 4х4 
+    int m = 4;  
+    int[,] array = new int[m,m];
+// индексы начальной ячейки
+    int i = 0;
+    int j = 0;
+// цикл с условиями смещения
+    for(int h = 1; h <= array.GetLength(0) * array.GetLength(1); h++){
+        array[i,j] = h;
+        if(i <= j+1 && i+j < array.GetLength(1) -1) j++;
+        else if(i < j && i+j >= array.GetLength(0) -1) i++;
+        else if(i >= j && i+j > array.GetLength(1) -1) j--;
+        else i--;
+    }
+    return array;
+}
+
+// функция демонстрации массива (подставить сюда массив)
+void ShowMy2dSpiralArray(int[,] array){
+    for (int i = 0; i < array.GetLength(0); i++){
+        for (int j = 0; j < array.GetLength(1); j++){
+            if (array[i,j] < 10){
+            Console.Write($"0{array[i,j]} "); // знак 0 для формата недвузначным значениям
+            }
+            else{
+            Console.Write(array[i,j] +" ");    
+            }
+        }
+        Console.WriteLine();
+    }
+}
+
+// вы3ов функции генерации
+int[,] array = MakeMe2dSpiralRandomArray();
+// вызов функции демонстрации массива
+ShowMy2dSpiralArray(array);
+
+*/
