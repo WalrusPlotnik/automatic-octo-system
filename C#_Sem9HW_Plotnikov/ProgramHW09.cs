@@ -4,3 +4,31 @@
 // M = 1; N = 5. -> ""1, 2, 3, 4, 5""
 // M = 4; N = 8. -> ""4, 6, 7, 8""
 
+// функция приёма входных данных
+int InputData(string line){
+    Console.Write(line);
+    int number = int.Parse(Console.ReadLine() ?? "1");
+    return number;
+}
+// функция обработки данных
+string MNInterval(int m, int n){
+    if (m >= n){
+        return n.ToString(); // если число N не превышает M, показываем только N и ничего более 
+    }
+    else{
+        // составляем строку из числа m и числа следующего за ним 
+        return m + ", " + MNInterval(m+1, n);
+    }
+}
+// функция вывода данных
+void ShowData(string prefix, string number){
+    Console.WriteLine(prefix + number);
+}
+// объявляем переменные входных данных через функцию ввода
+int m = InputData("Введите число М, начало интервала: ");
+int n = InputData("Введите число N, конец интервала: ");
+// объявляем через функцию обработки данных переменную для искомых значений 
+string result = (m < n) ? MNInterval(m,n) : MNInterval(n,m);
+// вызываем функцию вывода, другие две функции она вызовет сама
+ShowData("Интервал от M до N состоит из следующих натуральных чисел: ", result);
+
